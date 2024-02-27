@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 
+/* Shadcn */
+import { ThemeProvider } from "@/providers/theme-provider";
+
 /* Clerk */
 import { ClerkProvider } from '@clerk/nextjs';
 import { dark } from '@clerk/themes';
@@ -22,8 +25,18 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider appearance={{ baseTheme: dark }}>
-      <html lang="en">
-        <body className={`${inter.variable} ${kaushan.variable} font-sans`}>{children}</body>
+      <html lang="en" suppressHydrationWarning>
+
+        <body className={`${inter.variable} ${kaushan.variable} font-sans`}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </body>
       </html>
     </ClerkProvider>
 
