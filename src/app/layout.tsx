@@ -4,10 +4,11 @@ import type { Metadata } from "next";
 import { ClerkProvider } from '@clerk/nextjs';
 import { dark } from '@clerk/themes';
 
-import { Inter } from "next/font/google";
+import { Inter, Kaushan_Script } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const kaushan = Kaushan_Script({ weight: '400', subsets: ["latin"], variable: "--font-kaushan" })
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,7 +23,7 @@ export default function RootLayout({
   return (
     <ClerkProvider appearance={{ baseTheme: dark }}>
       <html lang="en">
-        <body className={inter.className}>{children}</body>
+        <body className={`${inter.variable} ${kaushan.variable} font-sans`}>{children}</body>
       </html>
     </ClerkProvider>
 
