@@ -3,10 +3,6 @@ import type { Metadata } from "next";
 /* Shadcn */
 import { ThemeProvider } from "@/providers/theme-provider";
 
-/* Clerk */
-import { ClerkProvider } from '@clerk/nextjs';
-import { dark } from '@clerk/themes';
-
 import { Inter, Kaushan_Script } from "next/font/google";
 import "./globals.css";
 
@@ -24,21 +20,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider appearance={{ baseTheme: dark }}>
-      <html lang="en" suppressHydrationWarning>
 
-        <body className={`${inter.variable} ${kaushan.variable} font-sans overflow-x-hidden`}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.variable} ${kaushan.variable} font-sans overflow-x-hidden`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
+
 
   );
 }
