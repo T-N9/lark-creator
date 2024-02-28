@@ -62,13 +62,13 @@ export default function Home() {
             <Card
               key={card.title}
               className={clsx('w-[300px] flex flex-col justify-between', {
-                'border-2 border-primary': card.title === 'Unlimited Saas',
+                'border-2 border-primary': card.title === 'Unlimited SaaS',
               })}
             >
               <CardHeader>
                 <CardTitle
                   className={clsx('', {
-                    'text-muted-foreground': card.title !== 'Unlimited Saas',
+                    'text-muted-foreground': card.title !== 'Unlimited SaaS',
                   })}
                 >
                   {card.title}
@@ -109,7 +109,7 @@ export default function Home() {
                     'w-full text-center bg-primary p-2 rounded-md',
                     {
                       '!bg-muted-foreground':
-                        card.title !== 'Unlimited Saas',
+                        card.title !== 'Unlimited SaaS',
                     }
                   )}
                 >

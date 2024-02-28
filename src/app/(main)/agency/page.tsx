@@ -1,9 +1,17 @@
-import React from 'react'
+import { getAuthUserDetails, verifyAndAcceptInvitation } from "@/lib/queries";
+import { currentUser } from "@clerk/nextjs"
+import { redirect } from "next/navigation"
 
-function page() {
+const Page = async () => {
+
+  const agencyId = await verifyAndAcceptInvitation();
+  console.log({agencyId})
+
+  const user = await getAuthUserDetails()
+
   return (
-    <div>page</div>
+    <div>agency</div>
   )
 }
 
-export default page
+export default Page
